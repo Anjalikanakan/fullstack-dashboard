@@ -5,9 +5,11 @@
             "routePrefix": "/",
             "framework": "create-react-app"
         },
-        "backend": {
-            "root": "backend",
-            "routePrefix": "/_/backend"
-        }
+       "backend": {
+					"root": "backend",
+					"routePrefix": "/_/backend",
+					"framework": "nodejs",
+					"entrypoint": "index.js"
+				}
     }
 }
