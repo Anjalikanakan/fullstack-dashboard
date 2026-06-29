@@ -2,13 +2,15 @@
 // Redux store — combines all slices
 
 import { configureStore } from "@reduxjs/toolkit";
+import authReducer     from "./slices/authSlice";
 import usersReducer    from "./slices/usersSlice";
 import productsReducer from "./slices/productsSlice";
 
 const store = configureStore({
   reducer: {
-    users:    usersReducer,    // state.users
-    products: productsReducer, // state.products
+    auth:     authReducer,
+    users:    usersReducer,
+    products: productsReducer,
   },
 });
 

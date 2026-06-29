@@ -3,23 +3,25 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import store      from "./redux/store";
-import Navbar     from "./components/Navbar";
-import Dashboard  from "./pages/Dashboard";
-import Users      from "./pages/Users";
-import Products   from "./pages/Products";
+import store        from "./redux/store";
+import Navbar       from "./components/Navbar";
+import PrivateRoute from "./components/PrivateRoute";
+import Dashboard    from "./pages/Dashboard";
+import Users        from "./pages/Users";
+import Products     from "./pages/Products";
+import Login        from "./pages/Login";
 import "./styles/App.css";
 
 function App() {
   return (
-    // Provider — makes Redux store available to ALL child components
     <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/"         element={<Dashboard />} />
-          <Route path="/users"    element={<Users />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/"         element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/users"    element={<PrivateRoute><Users /></PrivateRoute>} />
+          <Route path="/products" element={<PrivateRoute><Products /></PrivateRoute>} />
         </Routes>
       </BrowserRouter>
     </Provider>

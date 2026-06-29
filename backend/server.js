@@ -5,6 +5,7 @@ require("dotenv").config(); // load .env variables
 
 const express      = require("express");
 const cors         = require("cors");
+const authRoutes   = require("./routes/authRoutes");
 const userRoutes   = require("./routes/userRoutes");
 const productRoutes= require("./routes/productRoutes");
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 });
 
 // ── Routes ────────────────────────────────────────
+app.use("/api/auth",     authRoutes);
 app.use("/api/users",    userRoutes);
 app.use("/api/products", productRoutes);
 

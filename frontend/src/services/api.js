@@ -7,10 +7,14 @@ import axios from "axios";
 const API_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
 // Base axios instance — all requests use this
 const api = axios.create({
-  baseURL: `${API_URL}/api`, // your backend URL
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: `${API_URL}/api`,
+  headers: { "Content-Type": "application/json" },
+});
+
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
 });
 
 // ── USER APIs ─────────────────────────────────────
