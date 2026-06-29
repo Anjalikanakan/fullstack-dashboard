@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
   name          VARCHAR(100) NOT NULL,
   email         VARCHAR(150) NOT NULL UNIQUE,
   role          VARCHAR(50)  DEFAULT 'user',
-  password_hash VARCHAR(255) NULL,
+  password      VARCHAR(255) NULL,
   created_at    TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -18,11 +18,11 @@ const login = async (req, res) => {
 
     const user = rows[0];
 
-    if (!user.password_hash) {
+    if (!user.password) {
       return res.status(401).json({ success: false, message: 'Account not configured for login' });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password_hash);
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
       return res.status(401).json({ success: false, message: 'Invalid email or password' });
