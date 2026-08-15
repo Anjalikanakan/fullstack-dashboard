@@ -79,7 +79,7 @@ function Login() {
 
         <div className="login-hint">
           <p>Demo credentials</p>
-          <code>anjali@example.com / Admin@123</code>
+          <code>anjali@example.com / password123</code>
         </div>
       </div>
     </div>
